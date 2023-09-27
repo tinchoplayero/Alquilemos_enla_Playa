@@ -1,0 +1,26 @@
+{
+  "configVersion": 2,
+  "packages": [
+    {
+      "name": "formz",
+      "rootUri": "file:///C:/Users/Martin/AppData/Local/Pub/Cache/hosted/pub.dev/formz-0.6.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "meta",
+      "rootUri": "file:///C:/Users/Martin/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.10.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "form_inputs",
+      "rootUri": "../",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    }
+  ],
+  "generated": "2023-09-27T19:26:41.251717Z",
+  "generator": "pub",
+  "generatorVersion": "3.0.6"
+}
