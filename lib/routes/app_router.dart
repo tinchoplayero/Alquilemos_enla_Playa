@@ -4,6 +4,7 @@
 //import 'package:alquilemos_enla_playa/home_page.dart';
 //import 'package:alquilemos_enla_playa/main.dart';
 import '../login/login.dart';
+import '../sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../app/bloc/app_bloc.dart';
@@ -35,11 +36,11 @@ class AppRouter {
               path: "/login",
               builder: (context, state) => LoginPage(),
             ),
-            //GoRoute(
-            //  name: SignUpPage.name,
-            //  path: "/signUp",
-            //  builder: (context, state) => SignUpPage(),
-            //),
+            GoRoute(
+              name: SignUpPage.name,
+              path: "/signUp",
+              builder: (context, state) => SignUpPage(),
+            ),
             /*GoRoute(
           name: Disponibilidad.name,
           path: "/pagina-disponibilidad",

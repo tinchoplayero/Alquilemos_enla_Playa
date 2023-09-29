@@ -9,9 +9,9 @@ class SignUpPage extends StatelessWidget {
   static const name = 'signUp';
   const SignUpPage({super.key});
 
-  static Route<void> route() {
-    return MaterialPageRoute<void>(builder: (_) => const SignUpPage());
-  }
+  //static Route<void> route() {
+  //  return MaterialPageRoute<void>(builder: (_) => const SignUpPage());
+  //}
 
   @override
   Widget build(BuildContext context) {
