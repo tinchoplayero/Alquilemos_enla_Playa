@@ -1,5 +1,5 @@
 import 'package:authentication_repository/authentication_repository.dart';
-import 'package:flow_builder/flow_builder.dart';
+//import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -10,7 +10,7 @@ import '../bloc/app_bloc.dart';
 import '../../routes/app_router.dart';
 
 class App extends StatelessWidget {
-  static const name = 'autentificacion';
+  
   const App({
     required AuthenticationRepository authenticationRepository,
     super.key,
@@ -44,10 +44,10 @@ class AppView extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: temaAlquilemos,
-      home: FlowBuilder<AppStatus>(
-        state: context.select((AppBloc bloc) => bloc.state.status),
-        onGeneratePages: onGenerateAppViewPages,
-      ),
+      //home: FlowBuilder<AppStatus>(
+      //  state: context.select((AppBloc bloc) => bloc.state.status),
+      //  onGeneratePages: onGenerateAppViewPages,
+      //),
     );
   }
 }

@@ -6,6 +6,7 @@ import '../cubit/login_cubit.dart';
 import 'login_form.dart';
 
 class LoginPage extends StatelessWidget {
+  static const name = 'login';
   const LoginPage({super.key});
 
   static Page<void> page() => const MaterialPage<void>(child: LoginPage());

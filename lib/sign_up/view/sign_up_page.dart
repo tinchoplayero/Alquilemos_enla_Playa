@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../cubit/sign_up_cubit.dart';
 
 class SignUpPage extends StatelessWidget {
+  static const name = 'signUp';
   const SignUpPage({super.key});
 
   static Route<void> route() {
