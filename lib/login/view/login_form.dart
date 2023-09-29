@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 
 
 import '../../sign_up/view/sign_up_page.dart';
-import '../cubit/login_cubit.dart';
+import '../cubit/login_cubit.dart'; 
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
@@ -33,7 +33,7 @@ class LoginForm extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Image.asset(
-                'assets/bloc_logo_small.png',
+                'assets/img/homepage_logo.png',
                 height: 120,
               ),
               const SizedBox(height: 16),

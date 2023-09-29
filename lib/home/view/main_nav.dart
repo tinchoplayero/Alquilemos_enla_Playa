@@ -7,6 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart'; 
 import '../../theme/theme.dart';
 import '../widget/widgets_home.dart';
+import '/app/app.dart';
+
 
 // import 'package:flutter_bloc/flutter_bloc.dart';
 //void main() => runApp(MainNavApp());
@@ -74,6 +76,15 @@ class _MainNavState extends State<MainNav> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Hola, tinchoplayero'),
+        actions: [
+          IconButton(
+            key: const Key('homePage_logout_iconButton'),
+            icon: const Icon(Icons.exit_to_app),
+            onPressed: () {
+              context.read<AppBloc>().add(const AppLogoutRequested());
+            },
+          )
+        ],
       ),
       body: Center(
         child: Column(

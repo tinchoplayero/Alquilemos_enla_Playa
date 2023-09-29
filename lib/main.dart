@@ -9,37 +9,47 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'home/view/main_nav.dart';
-import 'package:alquilemos_enla_playa/routes/app_router.dart';
+import '/routes/app_router.dart';
 import 'firebase_options.dart';
 import 'theme/theme.dart';
 
 
+
+import 'package:provider/provider.dart';
+
 void main() async {
   await Firebase.initializeApp(
-  options: DefaultFirebaseOptions.currentPlatform,
-);
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
-  runApp(const MainApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        Provider<AuthenticationRepository>(
+          create: (_) => AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
+        ),
+        // Otros Providers si los tienes.
+      ],
+      child: const MainApp(),
+    ),
+  );
 }
 
+final authenticationRepository = AuthenticationRepository();
+final appBloc = AppBloc(authenticationRepository: authenticationRepository);
+
 class MainApp extends StatelessWidget {
-  
   const MainApp({super.key});
-  
 
   @override
   Widget build(BuildContext context) {
-    final _router = AppRouter();
-    return  MaterialApp.router(
+    final _router = AppRouter(appBloc);
+    return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routeInformationProvider: _router.router.routeInformationProvider,
       routeInformationParser: _router.router.routeInformationParser,
       routerDelegate: _router.router.routerDelegate,
       theme: temaAlquilemos,
-      
-      
     );
   }
-  
-
 }
