@@ -26,6 +26,7 @@ class AppRouter {
               redirect: (context, state) {
                 print('Estado de la Auth ${appBloc.state.status.toString()}');
                 if (appBloc.state.status == AppStatus.unauthenticated){
+                  
                   return "/login";
                 }
                 return "/pagina-inicio";

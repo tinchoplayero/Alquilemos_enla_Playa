@@ -102,10 +102,14 @@ class _PasswordInput extends StatelessWidget {
 class _LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
+
     return BlocBuilder<LoginCubit, LoginState>(
-      builder: (context, state) {
+        builder: (context, state) {
+          print('Valor de state.isValid en el botón: ${state.isValid}');
         return state.status.isInProgress
             ? const CircularProgressIndicator()
+            
             : ElevatedButton(
                 key: const Key('loginForm_continue_raisedButton'),
                 style: ElevatedButton.styleFrom(
@@ -114,7 +118,9 @@ class _LoginButton extends StatelessWidget {
                   ),
                   backgroundColor: const Color(0xFFFFD600),
                 ),
-                onPressed: state.isValid
+                //print('Valor de state.isValid: ${state.isValid}'),
+                 onPressed: state.isValid
+                    
                     ? () => context.read<LoginCubit>().logInWithCredentials()
                     : null,
                 child: const Text('LOGIN'),

@@ -18,9 +18,9 @@ class MainNavApp extends StatelessWidget {
   const MainNavApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: temaAlquilemos,
-      home: MainNav(),
+    return Scaffold(
+      //theme: temaAlquilemos,
+      body: MainNav(),
     );
   }
 }

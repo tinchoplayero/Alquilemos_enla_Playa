@@ -22,17 +22,27 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(
+runApp(
     MultiProvider(
       providers: [
         Provider<AuthenticationRepository>(
           create: (_) => AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
         ),
-        // Otros Providers si los tienes.
-      ],
+              ],
       child: const MainApp(),
     ),
   );
+/*MultiProvider(
+      providers: [
+        Provider<AppBloc>(
+          create: (_) => AppBloc(authenticationRepository: authenticationRepository), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
+        ),
+              ],
+      child: const MainApp(),
+    );*/
+  
+  
+  //runApp(const MainApp());
 }
 
 final authenticationRepository = AuthenticationRepository();
@@ -43,6 +53,7 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //final AppBloc appBloc = context.watch<AppBloc>();
     final _router = AppRouter(appBloc);
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
