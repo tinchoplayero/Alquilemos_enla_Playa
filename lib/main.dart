@@ -13,22 +13,23 @@ import '/routes/app_router.dart';
 import 'firebase_options.dart';
 import 'theme/theme.dart';
 
-
-
 import 'package:provider/provider.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-runApp(
+  runApp(
     MultiProvider(
       providers: [
         Provider<AuthenticationRepository>(
-          create: (_) => AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
+          create: (_) =>
+              AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
         ),
-              ],
+      ],
       child: const MainApp(),
     ),
   );
@@ -40,8 +41,7 @@ runApp(
               ],
       child: const MainApp(),
     );*/
-  
-  
+
   //runApp(const MainApp());
 }
 
