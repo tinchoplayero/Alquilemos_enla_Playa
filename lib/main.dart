@@ -22,17 +22,22 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
-  runApp(
-    MultiProvider(
-      providers: [
-        Provider<AuthenticationRepository>(
-          create: (_) =>
-              AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
-        ),
-      ],
-      child: const MainApp(),
-    ),
-  );
+  final authenticationRepository = AuthenticationRepository();
+  await authenticationRepository.user.first;
+
+  runApp(App(authenticationRepository: authenticationRepository));
+
+  // runApp(
+  //   MultiProvider(
+  //     providers: [
+  //       Provider<AuthenticationRepository>(
+  //         create: (_) =>
+  //             AuthenticationRepository(), // Puedes proporcionar aquí tu instancia de AuthenticationRepository.
+  //       ),
+  //     ],
+  //     child: const MainApp(),
+  //   ),
+  // );
 /*MultiProvider(
       providers: [
         Provider<AppBloc>(

@@ -2,15 +2,11 @@ import 'package:authentication_repository/authentication_repository.dart';
 //import 'package:flow_builder/flow_builder.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-//import '../../features/list_products/cubit/product_list_cubit.dart';
-//import '../../services/database/database_repository_impl.dart';
 import '../../theme/theme.dart';
 import '../bloc/app_bloc.dart';
 import '../../routes/app_router.dart';
 
 class App extends StatelessWidget {
-  
   const App({
     required AuthenticationRepository authenticationRepository,
     super.key,
@@ -37,17 +33,19 @@ class App extends StatelessWidget {
 }
 
 class AppView extends StatelessWidget {
-  static const name = 'autentificacion';
+  // static const name = 'autentificacion';
   const AppView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    final AppBloc appBloc = context.watch<AppBloc>();
+    final _router = AppRouter(appBloc);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routeInformationProvider: _router.router.routeInformationProvider,
+      routeInformationParser: _router.router.routeInformationParser,
+      routerDelegate: _router.router.routerDelegate,
       theme: temaAlquilemos,
-      //home: FlowBuilder<AppStatus>(
-      //  state: context.select((AppBloc bloc) => bloc.state.status),
-      //  onGeneratePages: onGenerateAppViewPages,
-      //),
     );
   }
 }
