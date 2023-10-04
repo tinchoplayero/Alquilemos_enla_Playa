@@ -8,7 +8,10 @@ import '../sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../app/bloc/app_bloc.dart';
-import '../home/view/main_nav.dart';
+import '../pages/home/view/main_nav.dart';
+import '../pages/dispototal/view/vista_general.dart';
+import '../pages/dispo_por_depto/view/disponibilidad.dart';
+import '../pages/formulario/view/formulario.dart';
 
 class AppRouter {
   final AppBloc appBloc;
@@ -25,8 +28,7 @@ class AppRouter {
               builder: (context, state) => MainNavApp(),
               redirect: (context, state) {
                 print('Estado de la Auth ${appBloc.state.status.toString()}');
-                if (appBloc.state.status == AppStatus.unauthenticated){
-                  
+                if (appBloc.state.status == AppStatus.unauthenticated) {
                   return "/login";
                 }
                 return "/pagina-inicio";
@@ -42,21 +44,21 @@ class AppRouter {
               path: "/signUp",
               builder: (context, state) => SignUpPage(),
             ),
-            /*GoRoute(
-          name: Disponibilidad.name,
-          path: "/pagina-disponibilidad",
-          builder: (context, state) => Disponibilidad(),
-        ),
-        GoRoute(
-          name: VistaGeneral.name,
-          path: "/vista-genral",
-          builder: (context, state) => VistaGeneral(),
-        ),
-        GoRoute(
-          name: NuevoHuesped.name,
-          path: "/nuevo-huesped",
-          builder: (context, state) => NuevoHuesped(),
-        ),*/
+            GoRoute(
+              name: VistaGeneral.name,
+              path: "/vista-genral",
+              builder: (context, state) => VistaGeneral(),
+            ),
+            GoRoute(
+              name: Disponibilidad.name,
+              path: "/pagina-disponibilidad",
+              builder: (context, state) => Disponibilidad(),
+            ),
+            GoRoute(
+              name: Formulario.name,
+              path: "/formulario",
+              builder: (context, state) => Formulario(),
+            ),
           ],
         );
 

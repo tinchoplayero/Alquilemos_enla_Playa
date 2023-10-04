@@ -52,4 +52,22 @@ final TextStyle infoSecundaria = TextStyle(
     color: Colors.black,
     fontStyle: FontStyle.italic);
 
+class BotonAlquilemos {
+  BotonAlquilemos._();
+
+  static const primaryColor = Color.fromARGB(255, 130, 70, 140);
+  static const primaryColorLight = Color.fromARGB(255, 242, 215, 247);
+
+  /// Accent color
+  static const secondaryColor = Color(0xFF9BC53D);
+  static const backGroundColor = Color(0xFFFFFFFF);
+  static const fontColor = Color(0xFF404E4D);
+
+  /// white = Color(0xFFFFFFFF);
+  static const Color white = Color(0xFFFFFFFF);
+
+  /// transparent = Color(0x00000000);
+  static const Color transparent = Color(0x00000000);
+}
+
     

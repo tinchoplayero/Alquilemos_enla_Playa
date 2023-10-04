@@ -10,14 +10,18 @@ class EventosDelDia extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text("Próximos Ingresos",
-        style: titulosSecundario,),
-        SizedBox(height: 8,),
+        Text(
+          "Próximos Ingresos",
+          style: titulosSecundario,
+        ),
+        SizedBox(
+          height: 8,
+        ),
         FutureBuilder<DocumentSnapshot>(
           future: firestore.collection("Huespedes").doc("huesped-id").get(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return CircularProgressIndicator(); 
+              return CircularProgressIndicator();
             } else if (snapshot.hasError) {
               return Text("Error: ${snapshot.error}");
             } else if (!snapshot.hasData) {
@@ -30,16 +34,20 @@ class EventosDelDia extends StatelessWidget {
               final apellido = data['apellido'];
               final timestamp = data['diaDeIngreso'] as Timestamp;
               final fechaYHora = timestamp.toDate();
-              final formato = DateFormat('dd/MM/yyyy HH:mm'); // Ajusta el formato según tus preferencias
+              final formato = DateFormat(
+                  'dd/MM/yyyy HH:mm'); // Ajusta el formato según tus preferencias
               final fechaYHoraFormateada = formato.format(fechaYHora);
 
               // MUESTRA LOS DATOS OBTENIDOS DE LA BD
               return Column(
                 children: [
-                  Text("Depto: $depto ""$nombre"+" "+"$apellido"+" "+"$fechaYHoraFormateada""Hs")
-                  //Text("Nombre: $nombre"),
-                  //Text("Apellido: $apellido"),
-                  //Text("Día y Hora de Ingreso: $fechaYHoraFormateada"),
+                  Card(
+                      child: ListTile(
+                          title: Text("Depto: $depto " "$nombre" +
+                              " " +
+                              "$apellido" +
+                              " " +
+                              "$fechaYHoraFormateada" "Hs")))
                 ],
               );
             }
@@ -49,6 +57,3 @@ class EventosDelDia extends StatelessWidget {
     );
   }
 }
-
-
-
