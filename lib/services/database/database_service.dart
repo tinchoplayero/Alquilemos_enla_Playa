@@ -4,10 +4,11 @@ import '../../pages/formulario/models/huesped.dart';
 class DatabaseService {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Future<void> addHuesped(String alias, double depto) async {
+  Future<void> addHuesped(String alias, double depto, String fecha) async {
     await _db.collection('Huespedes').add({
       'alias': alias,
       'depto': depto,
+      'fecha': fecha,
     });
   }
 

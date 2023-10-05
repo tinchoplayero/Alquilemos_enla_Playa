@@ -31,15 +31,17 @@ class VistaGeneral extends StatelessWidget {
                 itemCount: data.length,
                 itemBuilder: (context, index) {
                   final alias = data[index]["alias"];
+                  final depto = data[index]["depto"];
+                  final fecha = data[index]["fecha"];
                   if (alias != null) {
                     return Card(
                       child: ListTile(
-                        title: Text("Alias: ${alias}"), 
+                        title: Text("Alias: ${alias} Depto: ${depto} Ingreso: ${fecha}"), 
                       ),
                     );
                   } else {
                     return Text(
-                        "Alias no definido"); 
+                        "Huespedes no definidos"); 
                   }
                 },
               );

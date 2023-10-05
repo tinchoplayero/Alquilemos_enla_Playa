@@ -1,7 +1,9 @@
+import 'package:alquilemos_enla_playa/pages/formulario/widget/fomularioz.dart';
+
 import '../../../services/database/database_repository_impl.dart';
 import '../widget/solo_campos.dart';
 import 'package:flutter/material.dart';
-import '../cubit/huesped_list_cubit.dart';
+import '../cubit/huesped_cubit.dart';
 import '/app/app.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../services/database/database_service.dart';
@@ -23,10 +25,13 @@ class Formulario extends StatelessWidget {
       ),
       body: Column(
         children: [
-          
           BlocProvider(
             create: (context) => HuespedListCubit(databaseRepository),
           child: SoloCampos(),
+        ),
+        BlocProvider(
+            create: (context) => FormularioCubit(),
+          child: FormularioFormz(),
         ),
         ],
       ),

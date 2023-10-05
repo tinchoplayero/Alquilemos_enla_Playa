@@ -27,7 +27,7 @@ final class SignUpState extends Equatable {
         status,
         isValid,
         errorMessage,
-      ];
+      ]; 
 
   SignUpState copyWith({
     Email? email,

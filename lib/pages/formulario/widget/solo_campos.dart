@@ -1,9 +1,9 @@
+import 'package:alquilemos_enla_playa/pages/formulario/widget/boton_guardar.dart';
 import 'package:flutter/material.dart';
-import '../cubit/huesped_list_cubit.dart';
+import '../cubit/huesped_cubit.dart';
 import '/app/app.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../services/database/database_service.dart';
-
 
 class SoloCampos extends StatelessWidget {
   @override
@@ -11,42 +11,76 @@ class SoloCampos extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     String alias = '';
     double depto = 0.0;
-    return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                TextField(
-                  decoration: InputDecoration(labelText: 'Alias'),
-                  onChanged: (value) {
-                    alias = value;
-                  },
-                ),
-                TextField(
-                  decoration: InputDecoration(labelText: 'Departamento'),
-                  onChanged: (value) {
-                    depto = double.parse(value);
-                  },
-                ),
-              Row(
-                children: [
-                  TextButton(
-                    child: Text('Cancelar'),
-                    onPressed: () {
-                      
-                    },
-                  ),
-                  ElevatedButton(
-                    child: Text('Guardar'),
-                    onPressed: () {
-                      print('Alias: ${alias} Depto: ${depto}');
-                      context.read<HuespedListCubit>().addHuesped(alias, depto);
-                      
-                    },
-                  ),
-                ],
+    String fecha = '';
+    return Padding(
+      padding: const EdgeInsets.all(15.0),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TextField(
+            decoration: InputDecoration(labelText: 'Alias'),
+            onChanged: (value) {
+              alias = value;
+            },
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'Departamento'),
+            onChanged: (value) {
+              depto = double.parse(value);
+            },
+          ),
+          TextField(
+            decoration: InputDecoration(labelText: 'Fecha de Ingreso'),
+            onChanged: (value) {
+              fecha = value;
+            },
+          ),
+          SizedBox(height: 16.0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                child: Text('Cancelar'),
+                onPressed: () {},
               ),
-              ],
-            );
+              BotonGuardar(
+                press: () {
+                  context.read<HuespedListCubit>().addHuesped(alias, depto, fecha);
+                  print('Alias: ${alias} Depto: ${depto} Ingreso: ${fecha}');
+                },
+              )
+              /*ElevatedButton(
+                child: Text('Guardar'),
+                onPressed: () {
+                  print('Alias: ${alias} Depto: ${depto}');
+                  context.read<HuespedListCubit>().addHuesped(alias, depto);
+                  _openDialog(context);
+                },
+              ),*/
+            ],
+          ),
+        ],
+      ),
+    );
+  }
 
-
-    }
-    }
+  _openDialog(
+    BuildContext context,
+  ) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Huesped Agregado'),
+            actions: [
+              TextButton(
+                child: Text('OK'),
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          );
+        });
+  }
+}

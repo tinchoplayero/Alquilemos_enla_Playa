@@ -23,7 +23,7 @@ class SignUpCubit extends Cubit<SignUpState> {
         ]),
       ),
     );
-  }
+  } 
 
   void passwordChanged(String value) {
     final password = Password.dirty(value);
