@@ -1,10 +1,4 @@
-//import 'package:alquilemos_enla_playa/disponibilidad/cubit/disponibilidad_cubit.dart';
-//import 'package:alquilemos_enla_playa/feature/lista_huespedes/models/cubit/huesped_lista_cubit.dart';
-//import 'package:alquilemos_enla_playa/formulario/cubit/formulario_cubit.dart';
-//import 'package:alquilemos_enla_playa/widget/lista_huespedes.dart';
-
-import 'package:alquilemos_enla_playa/pages/formulario/view/formulario.dart';
-
+import '../../formulario/view/formulario.dart';
 import '../../dispototal/view/vista_general.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -26,7 +20,7 @@ class _MainNavAppState extends State<MainNavApp> {
   @override
   void initState() {
     super.initState();
-    inicioPrimeraVez(); // Pasa el contexto como argumento
+    inicioPrimeraVez(); 
   }
 
 
@@ -41,7 +35,7 @@ class _MainNavAppState extends State<MainNavApp> {
 
     //print("Usuario: $userId Valor: $_primeraVez");
     if (!_primeraVez) {
-      await prefs.setBool('primeraVez', true);
+      await prefs.setBool('primeraVez', true); // aca cambio 'primeraVez' por key cuando agrego los usuarios.
       showDialog(
         context: context,
         builder: (BuildContext context) {
@@ -112,13 +106,13 @@ class _MainNavAppState extends State<MainNavApp> {
             child: Icon(Icons.view_agenda),
             onPressed: () => context.pushNamed(VistaGeneral.name),
           ),
-          SizedBox(width: 16), // Espacio entre los botones flotantes
+          SizedBox(width: 16), 
           FloatingActionButton(
             heroTag: 'disponibilidad',
             child: Icon(Icons.grid_view),
             onPressed: () => context.pushNamed(Disponibilidad.name),
           ),
-          SizedBox(width: 16), // Espacio entre los botones flotantes
+          SizedBox(width: 16), 
           FloatingActionButton(
             heroTag: 'formulario',
             child: Icon(Icons.person_add),
