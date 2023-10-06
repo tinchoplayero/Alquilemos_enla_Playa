@@ -29,10 +29,10 @@ class Formulario extends StatelessWidget {
             create: (context) => HuespedListCubit(databaseRepository),
           child: SoloCampos(),
         ),
-        BlocProvider(
-            create: (context) => FormularioCubit(),
-          child: FormularioFormz(),
-        ),
+        //BlocProvider(
+        //    create: (context) => FormularioCubit(),
+        //  child: FormularioFormz(),
+        //),
         ],
       ),
             
