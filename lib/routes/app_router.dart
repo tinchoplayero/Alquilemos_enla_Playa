@@ -1,8 +1,4 @@
-//import 'package:alquilemos_enla_playa/nuevo_huesped.dart';
-//import 'package:alquilemos_enla_playa/vista_general.dart';
-//import 'package:alquilemos_enla_playa/disponibilidad.dart';
-//import 'package:alquilemos_enla_playa/home_page.dart';
-//import 'package:alquilemos_enla_playa/main.dart';
+
 import '../login/login.dart';
 import '../sign_up/sign_up.dart';
 import 'package:flutter/material.dart';
@@ -62,7 +58,7 @@ class AppRouter {
           ],
         );
 
-  // Error A function body must be provided
+  
   GoRouter get router {
     return _router;
   }

@@ -1,6 +1,3 @@
-//import 'package:alquilemos_en_la_playa/disponibilidad.dart';
-//import 'package:alquilemos_en_la_playa/home_page.dart';
-
 import 'package:authentication_repository/authentication_repository.dart';  
 
 import '/app/app.dart';

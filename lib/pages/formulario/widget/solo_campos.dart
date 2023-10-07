@@ -1,9 +1,7 @@
 import 'package:alquilemos_enla_playa/pages/formulario/widget/boton_guardar.dart';
 import 'package:flutter/material.dart';
 import '../cubit/huesped_cubit.dart';
-import '/app/app.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../services/database/database_service.dart';
 
 class SoloCampos extends StatelessWidget {
   @override
@@ -45,18 +43,13 @@ class SoloCampos extends StatelessWidget {
               ),
               BotonGuardar(
                 press: () {
-                  context.read<HuespedListCubit>().addHuesped(alias, depto, fecha);
+                  context
+                      .read<HuespedListCubit>()
+                      .addHuesped(alias, depto, fecha);
                   print('Alias: ${alias} Depto: ${depto} Ingreso: ${fecha}');
-                },
-              )
-              /*ElevatedButton(
-                child: Text('Guardar'),
-                onPressed: () {
-                  print('Alias: ${alias} Depto: ${depto}');
-                  context.read<HuespedListCubit>().addHuesped(alias, depto);
                   _openDialog(context);
                 },
-              ),*/
+              )
             ],
           ),
         ],
@@ -77,6 +70,7 @@ class SoloCampos extends StatelessWidget {
                 child: Text('OK'),
                 onPressed: () {
                   Navigator.pop(context);
+                  Navigator.of(context).pop();
                 },
               ),
             ],

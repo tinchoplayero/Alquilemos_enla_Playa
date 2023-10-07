@@ -4,11 +4,8 @@ import '../cubit/huesped_cubit.dart';
 
 class BotonGuardar extends StatelessWidget {
   final VoidCallback press;
-  
-  const BotonGuardar({
-    Key? key,
-    required this.press
-  }) : super(key: key);
+
+  const BotonGuardar({Key? key, required this.press}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +14,9 @@ class BotonGuardar extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Container(
       child: ElevatedButton(
-              child: Text('Guardar'),
-              onPressed:  press,
-                //context.read<HuespedListCubit>().addHuesped(alias, depto);
-                //_openDialog(context);
-              
-                  
-
-                ),
+        child: Text('Guardar'),
+        onPressed: press,
+      ),
     );
   }
 }

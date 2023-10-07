@@ -5,13 +5,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 part 'disponibilidad_state.dart';
 
 class DisponibilidadCubit extends Cubit<DisponibilidadState> {
-  //DisponibilidadCubit(super.initialState);
-  //DisponibilidadCubit(DisponibilidadState initialState) : super(initialState);
   DisponibilidadCubit() : super(DisponibilidadState());
 
- 
-
-  void botondoschanged(){
+  void botondoschanged() {
     emit(state.copyWith(
       botonDos: true, //- !state.botonDos,
       botonCuatro: false,
@@ -22,10 +18,11 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 2,
     ));
   }
-  void botoncuatrochanged(){
+
+  void botoncuatrochanged() {
     emit(state.copyWith(
       botonDos: false,
-      botonCuatro: true, 
+      botonCuatro: true,
       botonCinco: false,
       botonSeis: false,
       botonSiete: false,
@@ -33,10 +30,11 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 4,
     ));
   }
-  void botoncincochanged(){
+
+  void botoncincochanged() {
     emit(state.copyWith(
       botonDos: false,
-      botonCuatro: false, 
+      botonCuatro: false,
       botonCinco: true,
       botonSeis: false,
       botonSiete: false,
@@ -44,10 +42,11 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 5,
     ));
   }
-  void botonseischanged(){
+
+  void botonseischanged() {
     emit(state.copyWith(
       botonDos: false,
-      botonCuatro: false, 
+      botonCuatro: false,
       botonCinco: false,
       botonSeis: true,
       botonSiete: false,
@@ -55,10 +54,11 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 6,
     ));
   }
-  void botonsietechanged(){
+
+  void botonsietechanged() {
     emit(state.copyWith(
       botonDos: false,
-      botonCuatro: false, 
+      botonCuatro: false,
       botonCinco: false,
       botonSeis: false,
       botonSiete: true,
@@ -66,10 +66,11 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 7,
     ));
   }
-  void botonochochanged(){
+
+  void botonochochanged() {
     emit(state.copyWith(
       botonDos: false,
-      botonCuatro: false, 
+      botonCuatro: false,
       botonCinco: false,
       botonSeis: false,
       botonSiete: false,
@@ -77,12 +78,4 @@ class DisponibilidadCubit extends Cubit<DisponibilidadState> {
       botonDepto: 8,
     ));
   }
-   
-
-  /*void cambiarNumero(String deptoElegido) {
-    emit(state.copyWith(
-      deptoSeleccionado: deptoElegido,
-    )); 
-  }*/
 }
-

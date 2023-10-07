@@ -26,10 +26,7 @@ class DatabaseService {
     Stream<QuerySnapshot<Map<String, dynamic>>> huespedesStream =
         _db.collection('Huespedes').snapshots();
 
-    // final List<Huesped> listaHuespedes = huespedesSnapshot.docs.map((doc) {
-    //   return Huesped.fromDocumentSnapshot(doc);
-    // }).toList();
-    // return listaHuespedes;
+    
     return huespedesStream.map((snapshot) {
       return snapshot.docs
           .map((doc) => Huesped.fromDocumentSnapshot(doc))
@@ -41,7 +38,7 @@ class DatabaseService {
     final huespedes = [
       {
         'alias': 'Benito',
-        'depto': 2.0,
+        'depto': 2,
       },
       
     ];

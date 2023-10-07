@@ -88,13 +88,7 @@ class _MainNavAppState extends State<MainNavApp> {
             ),
             DiaHoraActual(),
             EventosDelDia(),
-            ElevatedButton( // BOTON PARA ELIMINAR LAS PREFERENCIAS DE USUARIO
-              onPressed: () async {
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                prefs.clear(); 
-              },
-              child: Text('Borrar prefs'),
-            )
+            
           ],
         ),
       ),
@@ -119,6 +113,21 @@ class _MainNavAppState extends State<MainNavApp> {
             onPressed: () => context.pushNamed(Formulario.name),
           ),
         ],
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () async {
+                  SharedPreferences prefs = await SharedPreferences.getInstance();
+                  prefs.clear(); 
+                },
+            ),
+            Text('Borrar Prefs'),
+          ],
+        ),
       ),
     );
   }

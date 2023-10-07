@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import '../../formulario/view/formulario.dart';
 import '../cubit/disponibilidad_cubit.dart';
 import '../widget/botonera.dart';
 import '/app/app.dart';
@@ -19,10 +21,19 @@ class Disponibilidad extends StatelessWidget {
       ),
       body: Container(
           child: BlocProvider(
-            create: (context) => DisponibilidadCubit(),
-            child: Botonera(),
-          )),
-      //bottomNavigationBar: MenuInferior(),
+        create: (context) => DisponibilidadCubit(),
+        child: Botonera(),
+      )),
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          FloatingActionButton(
+            heroTag: 'formulario',
+            child: Icon(Icons.person_add),
+            onPressed: () => context.pushNamed(Formulario.name),
+          ),
+        ],
+      ),
     );
   }
 }

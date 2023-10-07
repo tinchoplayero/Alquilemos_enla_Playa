@@ -1,0 +1,40 @@
+class _MainNavAppState extends State<MainNavApp> {
+  @override
+  void initState() {
+    super.initState();
+    inicioPrimeraVez(); 
+  }
+
+
+  Future inicioPrimeraVez() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //final user = context.select((AppBloc bloc) => bloc.state.user);
+    //final userId = user != null ? user.id : null; // Asumo que tienes una propiedad 'id' en tu objeto de usuario
+    //final key = 'primeraVez_$userId'; // Usamos una clave única para cada usuario
+    //bool _primeraVez = (prefs.getBool(key) ?? false);
+    
+    bool _primeraVez = (prefs.getBool('primeraVez') ?? false);
+
+    //print("Usuario: $userId Valor: $_primeraVez");
+    if (!_primeraVez) {
+      await prefs.setBool('primeraVez', true); // aca cambio 'primeraVez' por key cuando agrego los usuarios.
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Bienvenido!'),
+             
+            content: Text('Este es tu primer inicio de sesión'),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Aceptar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
+      );
+    }
+  }
