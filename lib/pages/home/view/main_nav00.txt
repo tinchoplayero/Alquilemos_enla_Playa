@@ -69,11 +69,6 @@ class _MainNavAppState extends State<MainNavApp> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Logo(),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
                 TituloGestion(),
               ],
             ),
